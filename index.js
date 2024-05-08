@@ -48,7 +48,27 @@ let teams = [
  function selectFootballTeam() {
     const teamList = document.getElementById("footballTeams");
     console.log(teamList.value);
-
+    let selectedTeam;
+    let numberOfTeams = teams.length;
+    for (let i = 0; i < numberOfTeams; i++) {
+        if (teams[i].teamcode === teamList.value) {
+            selectedTeam = teams[i];
+        }
+    }
+    let msg = `You selected the ${selectedTeam.name} (${selectedTeam.teamcode}) who play in ${selectedTeam.locatedIn}`;
+    let messageArea = document.getElementById("selectedFootballTeamMessage");
+    messageArea.innerHTML = msg;
+     // selectedTeam = getTeam(teamList.value);
  }
  
+ /*
+function getTeam(teamcode) {
+    let numberOfTeams = teams.length;
+    for (let i = 0; i < numberOfTeams; i++) {
+        if (teams[i].teamcode === teamcode) {
+            return teams[i];
+        }
+}
+    return -1;
+*/
   
